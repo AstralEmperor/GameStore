@@ -12,6 +12,8 @@ export interface Game{
         author:string;
         description:string;
         releaseDate:Date;
+        specialOffer:boolean;
+        price:number|string;
 }
 // Schema
 export const GameSchema = new Schema<Game>(
@@ -24,7 +26,9 @@ export const GameSchema = new Schema<Game>(
     owned:{type: Boolean, default:false},
     author:{type: String, required:true},
     description:{type: String, required:true},
-    releaseDate:{type: Date, required:true}
+    releaseDate:{type: Date, required:true},
+    specialOffer:{type: Boolean, default:false},
+    price:{type: Number || String,required:true}
 },{
     toJSON:{
         virtuals:true
