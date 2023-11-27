@@ -5,7 +5,7 @@
     box-sizing:border-box;
   }
   :root{
-
+    --body:rgba(40, 39, 38, 1);
     --header-bg:rgba(182, 107, 53, 1);
     --selected-header-link:rgba(255, 213, 106, 1);
     --text-normal:rgba(255, 255, 255, 1);
@@ -14,11 +14,35 @@
     --sale-tag-txt:rgba(30, 188, 74, 1);
     --price-sale-tag-bg:rgba(187, 187, 187, 1);
     --tag-bg:rgba(116, 116, 116, 1);
+    --title:rgba(219, 131, 67, 1);
+    --card-container:rgba(54, 54, 54, 1);
+    --empty-image:rgba(217, 217, 217, 1);
+    --card-info:rgba(77, 77, 77, 1);
 
     --header-font:1.25rem;
+    --normal-font:1rem;
   }
   
   html{
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing:0.05em;
   }
+  body{
+    background-color:var(--body);
+  }
+  .title{
+    font-size:1.75rem;
+    color:var(--title);
+    margin-inline:5rem;
+    margin-top:5rem;
+    margin-bottom:2rem;
+}
+.button-switch{
+  border:none;
+  background-color:transparent;
+  opacity:0.8;
+}
+.button-switch:hover{
+  cursor:pointer;
+  opacity:1;
+}

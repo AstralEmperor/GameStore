@@ -1,0 +1,26 @@
+<div class="cardRecc">
+    <li *ngFor="let game of games" class="cardRecc_li">
+    <div class="cardRecc__part1"> 
+        <img [src]="game.imageUrl" [alt]="game.name">
+    </div>
+
+    <div class="cardRecc__part2">
+        <div>
+            <h3>{{game.name}}</h3>
+        </div>
+        <div class="cardRecc-tagNcost-wrap">
+          <div class="cardRecc_tags">
+        </div>
+        <div>
+            {{game.price}}
+        </div>
+        <div>
+            {{game.stars}}
+        </div>
+        <div>
+            {{game.releaseDate}}
+        </div>
+      </div>
+     </div>
+  </li>
+</div>

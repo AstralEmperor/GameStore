@@ -1,4 +1,4 @@
-import { Game } from "./configs/models/games.model";
+import { Game } from "./app/components/shared/models/Game"
 
 export const sample_game: Game[] = [{
     id: '1',

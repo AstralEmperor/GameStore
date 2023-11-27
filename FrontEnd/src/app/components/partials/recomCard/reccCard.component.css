@@ -1,0 +1,36 @@
+li{
+    text-decoration: none;
+}
+.cardRecc{
+    display:flex;
+}
+.cardRecc_li{
+    display:flex;
+    min-width:100%;
+    min-height:100%;
+}
+.cardRecc__part1{
+    width:calc(100%/2);
+    background-color:var(--empty-image);
+}
+.cardRecc__part1 > img{
+    width:100%;
+    height:100%;
+}
+.cardRecc__part2{
+    width:calc(100%/2);
+    text-align:center;
+    padding-block:2rem;
+    background-color:var(--card-info);
+    height:auto;
+}
+.cardRecc_tags{
+    display:flex;
+    gap:2rem;
+}
+.cardRecc-tagNcost-wrap{
+    display:flex;
+    flex-direction:column;
+    justify-content:baseline;
+    height:100%;
+}
