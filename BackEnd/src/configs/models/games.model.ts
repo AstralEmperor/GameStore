@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 // Interface
 export interface Game{
-        id:string;
+        id:number;
         name:string;
         imageUrl:string;
         tags:string[];

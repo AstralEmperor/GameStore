@@ -9,12 +9,35 @@
  <div class="store__newRecommended-container">
     <div class="store__newRecommended-wrap">
     <div class="store__btnWrap">
-        <button class="store__arrow-previous button-switch"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
+        <button class="store__arrow-previous button-switch" (click)="previous()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
         <div class="store__newCards">
-            <reccomdedCard></reccomdedCard>
-            <!-- new and recommended cards go here -->
+            <ul class="cardRecc">
+                <li *ngFor="let game of games" class="cardRecc_li">
+                <div class="cardRecc__part1"> 
+                    <img loading="lazy" [src]="game.imageUrl" [alt]="game.name">
+                </div>
+                <div class="cardRecc__part2">
+                    <div>
+                        <h3>{{game.name}}</h3>
+                    </div>
+                    <div class="cardRecc-tagNcost-wrap">
+                      <div class="cardRecc_tags">
+                    </div>
+                    <div>
+                        {{game.price}}
+                    </div>
+                    <div>
+                        {{game.stars}}
+                    </div>
+                    <div>
+                        {{game.releaseDate}}
+                    </div>
+                  </div>
+                 </div>
+              </li>
+            </ul>
         </div>
-        <button class="store__arrow-next button-switch"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
+        <button class="store__arrow-next button-switch" (click)="next()"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
     </div>
 </div>
  </div>

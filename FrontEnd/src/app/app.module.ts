@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { StoreComponent } from './components/pages/store/store.component';
-import { NewComponent } from './components/partials/recomCard/reccCard.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { TagsComponent } from './components/partials/tags/tags.component';
     AppComponent,
     HeaderComponent,
     StoreComponent,
-    NewComponent,
     TagsComponent
   ],
   imports: [

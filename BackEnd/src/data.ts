@@ -1,7 +1,7 @@
 import { Game } from "./configs/models/games.model";
 
 export const sample_game: Game[] = [{
-    id: '1',
+    id: 1,
     name:'Dreamers',
     imageUrl:'assets/dreamers.png',
     tags:['Indie','Action','FreeToPlay','Platformer'],
@@ -15,7 +15,7 @@ export const sample_game: Game[] = [{
     price:'Free to play'
 
 },{
-    id: '2',
+    id: 2,
     name:'Need for Speed - Most Wanted',
     imageUrl:'assets/mostwanted.jpg',
     tags:['Racing','Action'],
@@ -28,7 +28,7 @@ export const sample_game: Game[] = [{
     specialOffer:true,
     price:5
 },{
-    id: '3',
+    id: 3,
     name:'Stronghold Crusader 2',
     imageUrl:'assets/Crusader2.webp',
     tags:['Strategy','Coop','Multiplayer'],
