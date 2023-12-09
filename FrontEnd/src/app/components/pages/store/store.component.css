@@ -86,11 +86,10 @@ li{
     font-weight: var(--price-weight);
     width:fit-content;
     min-width:5rem;
-    text-align:center;
     background-color:var(--price-body-clr);
 }
-.cardRecc__price > p {
-    padding-left:0.5rem;
+.cardRecc__price > p{
+    padding-left:0.25rem;
 }
 .cardRecc__tags{
     display:flex;

@@ -4,6 +4,7 @@
     padding-block:0.25rem;
     color:var(--text-normal);
     font-size:var(--button-font);
+    border:none;
 }
 .button:hover{
     cursor:pointer;
