@@ -1,6 +1,6 @@
 .header{
-    background-color:var(--header-bg);
-    font-size:var(--header-font);
+    background-color:var(--nav-bg);
+    font-size:var(--nav-font);
 }
 .header__container{
     display:flex;

@@ -1,7 +1,7 @@
 import { Game } from "./app/components/shared/models/Game"
 
 export const sample_game: Game[] = [{
-    id: '1',
+    id: 1,
     name:'Dreamers',
     imageUrl:'assets/dreamers.png',
     tags:['Indie','Action','FreeToPlay','Platformer'],
@@ -12,10 +12,10 @@ export const sample_game: Game[] = [{
     description:'An indie game created in reflection of fear of pigeons, like a pigeon nightmare you can not escape',
     releaseDate:'24-02-2019',
     specialOffer:false,
-    price:'Free to play'
+    price:0
 
 },{
-    id: '2',
+    id: 2,
     name:'Need for Speed - Most Wanted',
     imageUrl:'assets/mostwanted.jpg',
     tags:['Racing','Action'],
@@ -28,7 +28,7 @@ export const sample_game: Game[] = [{
     specialOffer:true,
     price:5
 },{
-    id: '3',
+    id: 3,
     name:'Stronghold Crusader 2',
     imageUrl:'assets/Crusader2.webp',
     tags:['Strategy','Coop','Multiplayer'],

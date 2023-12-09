@@ -6,7 +6,7 @@
   }
   :root{
     --body:rgba(40, 39, 38, 1);
-    --header-bg:rgba(182, 107, 53, 1);
+    --nav-bg:rgba(182, 107, 53, 1);
     --selected-header-link:rgba(255, 213, 106, 1);
     --text-normal:rgba(255, 255, 255, 1);
     --heading-text:rgba(219, 131, 67, 1);
@@ -18,9 +18,20 @@
     --card-container:rgba(54, 54, 54, 1);
     --empty-image:rgba(217, 217, 217, 1);
     --card-info:rgba(77, 77, 77, 1);
+    --buy-btn:rgba(71, 135, 31, 1);
+    --buy-btn-hover:rgb(63, 121, 28);
+    --text-hover:rgb(226, 226, 226);
+    --price-body-clr:rgb(59, 59, 58);
 
-    --header-font:1.25rem;
+    --nav-font:1.5rem;
+    --heading-font:2rem;
     --normal-font:1rem;
+    --price-font:1.5rem;
+    --date-font:0.8rem; 
+    --button-font:1rem;
+
+    --date-weight:300;
+    --price-weight:600;
   }
   
   html{

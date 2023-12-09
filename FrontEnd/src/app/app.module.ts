@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { StoreComponent } from './components/pages/store/store.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
+import { BuyButtonComponent } from './components/partials/buttons/buy-button/buy-button.component';
+import { AddToLibraryButtonComponent } from './components/partials/buttons/add-to-library-button/add-to-library-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     StoreComponent,
-    TagsComponent
+    TagsComponent,
+    BuyButtonComponent,
+    AddToLibraryButtonComponent
   ],
   imports: [
     BrowserModule,

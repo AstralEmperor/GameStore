@@ -2,8 +2,8 @@
     padding:0.5rem;
     background-color:var(--tag-bg);
     width:fit-content;
-}
-.tag__text{
     color:var(--text-normal);
     font-size:var(--normal-font);
+    border:none;
+    height:fit-content;
 }

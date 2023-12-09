@@ -37,6 +37,9 @@ li{
 }
 .cardRecc{
     display:flex;
+    transition: 0.5s ease-in-out;
+    color:var(--text-normal);
+    min-height:30rem;
 }
 .cardRecc_li{
     display:flex;
@@ -44,7 +47,7 @@ li{
     min-height:100%;
 }
 .cardRecc__part1{
-    width:calc(100%/2);
+    width:calc(100%/1.5);
     background-color:var(--empty-image);
 }
 .cardRecc__part1 > img{
@@ -58,13 +61,42 @@ li{
     background-color:var(--card-info);
     height:auto;
 }
-.cardRecc_tags{
-    display:flex;
-    gap:2rem;
-}
 .cardRecc-tagNcost-wrap{
     display:flex;
     flex-direction:column;
-    justify-content:baseline;
+    justify-content:flex-end;
     height:100%;
+    padding-bottom:2rem;
+    padding-inline:3rem;
+}
+.cardRecc__h3{
+    font-size:var(--heading-font);
+}
+.cardRecc__date{
+    text-align:left;
+    font-weight: var(--date-weight);
+    font-size:var(--date-font);
+    margin-bottom:0.5rem;
+}
+.cardRecc__price{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:var(--price-font);
+    font-weight: var(--price-weight);
+    width:fit-content;
+    min-width:5rem;
+    text-align:center;
+    background-color:var(--price-body-clr);
+}
+.cardRecc__price > p {
+    padding-left:0.5rem;
+}
+.cardRecc__tags{
+    display:flex;
+    gap:0.2rem;
+    width:100%;
+    height:fit-content;
+    margin-top:1rem;
+    margin-bottom:0.5rem;
 }

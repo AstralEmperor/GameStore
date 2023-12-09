@@ -1,5 +1,5 @@
 export class Game{
-    id!: string;
+    id!: number;
     name!: string;
     imageUrl!: string;
     tags!:string[];
@@ -10,5 +10,5 @@ export class Game{
     description!:string;
     releaseDate!:string;
     specialOffer!:boolean;
-    price!:string | number;
+    price!:number;
 }

@@ -11,29 +11,39 @@
     <div class="store__btnWrap">
         <button class="store__arrow-previous button-switch" (click)="previous()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
         <div class="store__newCards">
-            <ul class="cardRecc">
-                <li *ngFor="let game of games" class="cardRecc_li">
-                <div class="cardRecc__part1"> 
-                    <img loading="lazy" [src]="game.imageUrl" [alt]="game.name">
+            <ul #carousel class="cardRecc" [ngStyle]="{'transform': 'translateX(' +- this.slide + 'px)'}">
+              <li *ngFor="let game of reccGames" class="cardRecc_li">
+                <div class="cardRecc_li">
+                    <div class="cardRecc__part1"> 
+                        <img loading="lazy" [src]="game.imageUrl" [alt]="game.name">
+                    </div>
+                    <div class="cardRecc__part2">
+                        <div class="cardRecc__h3-wrap">
+                            <h3 class="cardRecc__h3">{{game.name}}</h3>
+                        </div>
+                      <div class="cardRecc-tagNcost-wrap">
+                        <div>
+                            {{game.stars}}
+                        </div>
+                        <div class="cardRecc__tags">
+                            <div *ngFor="let tag of game.tags">
+                             <tags title="{{tag}}"></tags>
+                           </div>
+                        </div>
+                        <div class="cardRecc__date">
+                            {{game.releaseDate}}
+                        </div>
+                            <div *ngIf="game.price > 0" class="cardRecc__price">
+                                <p>{{'$' + game.price || game.owned == false}}</p>
+                                <buy-button></buy-button>
+                            </div>
+                            <div *ngIf="game.price == 0 || game.owned == true" class="cardRecc__price">
+                                <p>Free To Play</p>
+                                <add-to-library-button></add-to-library-button>
+                            </div>
+                       </div>
+                    </div>
                 </div>
-                <div class="cardRecc__part2">
-                    <div>
-                        <h3>{{game.name}}</h3>
-                    </div>
-                    <div class="cardRecc-tagNcost-wrap">
-                      <div class="cardRecc_tags">
-                    </div>
-                    <div>
-                        {{game.price}}
-                    </div>
-                    <div>
-                        {{game.stars}}
-                    </div>
-                    <div>
-                        {{game.releaseDate}}
-                    </div>
-                  </div>
-                 </div>
               </li>
             </ul>
         </div>
