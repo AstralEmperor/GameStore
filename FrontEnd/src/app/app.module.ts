@@ -8,6 +8,7 @@ import { StoreComponent } from './components/pages/store/store.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
 import { BuyButtonComponent } from './components/partials/buttons/buy-button/buy-button.component';
 import { AddToLibraryButtonComponent } from './components/partials/buttons/add-to-library-button/add-to-library-button.component';
+import { RatingComponent } from './components/partials/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddToLibraryButtonComponent } from './components/partials/buttons/add-t
     StoreComponent,
     TagsComponent,
     BuyButtonComponent,
-    AddToLibraryButtonComponent
+    AddToLibraryButtonComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

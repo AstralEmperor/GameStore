@@ -9,9 +9,9 @@
  <div class="store__newRecommended-container">
     <div class="store__newRecommended-wrap">
     <div class="store__btnWrap">
-        <button class="store__arrow-previous button-switch" (click)="previous()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
+        <button class="store__arrow-previous button-switch" (click)="previousRecc()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
         <div class="store__newCards">
-            <ul #carousel class="cardRecc" [ngStyle]="{'transform': 'translateX(' +- this.slide + 'px)'}">
+            <ul #carouselRecc class="cardRecc" [ngStyle]="{'transform': 'translateX(' +- this.slideRecc + 'px)'}">
               <li *ngFor="let game of reccGames" class="cardRecc_li">
                 <div class="cardRecc_li">
                     <div class="cardRecc__part1"> 
@@ -23,7 +23,7 @@
                         </div>
                       <div class="cardRecc-tagNcost-wrap">
                         <div>
-                            {{game.stars}}
+                            <rating [stars]= "game.stars"></rating>
                         </div>
                         <div class="cardRecc__tags">
                             <div *ngFor="let tag of game.tags">
@@ -33,8 +33,8 @@
                         <div class="cardRecc__date">
                             {{game.releaseDate}}
                         </div>
-                            <div *ngIf="game.price > 0" class="cardRecc__price">
-                                <p>{{'$' + game.price || game.owned == false}}</p>
+                            <div *ngIf="game.price > 0 && game.owned == false" class="cardRecc__price">
+                                <p>{{'$' + game.price}}</p>
                                 <buy-button></buy-button>
                             </div>
                             <div *ngIf="game.price == 0 || game.owned == true" class="cardRecc__price">
@@ -47,9 +47,33 @@
               </li>
             </ul>
         </div>
-        <button class="store__arrow-next button-switch" (click)="next()"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
+        <button class="store__arrow-next button-switch" (click)="nextRecc()"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
     </div>
 </div>
  </div>
 </div>
+<div class="store__newRecommended">
+    <div class="store__newRecommended-H3 title">
+       <h3>Special Offers</h3>
+    </div>
+    <div class="store__newRecommended-container">
+       <div class="store__newRecommended-wrap">
+       <div class="store__btnWrap">
+           <button class="store__arrow-previous button-switch" (click)="previousOffer()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
+           <div class="store__newCards">
+            <ul #carouselOffer class="cardOffer" [ngStyle]="{'transform': 'translateX(' +- this.slideOffer + 'px)'}">
+                <li *ngFor="let game of offersGames" class="cardOffer_li">
+                    <div class="cardOffer_li-item">
+                        <div class="cardOffer__part"> 
+                            <img loading="lazy" [src]="game.imageUrl" [alt]="game.name">
+                        </div>
+                    </div>
+               </li>  
+            </ul>
+           </div>
+           <button class="store__arrow-next button-switch" (click)="nextOffer()"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>

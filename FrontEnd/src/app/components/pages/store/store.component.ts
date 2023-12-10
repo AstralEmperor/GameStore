@@ -12,34 +12,57 @@ import { GamesService } from '../../services/games.service';
 export class StoreComponent{
 
     reccGames:Game[] = [];
-    value:number = 0;
-    slide: number = 0;
+    valueRecc:number = 0;
+    slideRecc: number = 0;
+
+    offersGames:Game[] = [];
+    valueOffer:number = 0;
+    slideOffer: number = 0;
+
+
 
     constructor(private gameService:GamesService){
      this.reccGames = gameService.getAll(); 
+     this.offersGames = gameService.getAll();
     }
 
-    @ViewChild('carousel',{static:true}) carousel!:ElementRef;
-    @ViewChild('carouselContent',{static:true}) carouselContent!:ElementRef;
+    @ViewChild('carouselRecc',{static:true}) carouselRecc!:ElementRef;
+    @ViewChild('carouselOffer',{static:true}) carouselOffer!:ElementRef;
 
     // takes the current slide 
 
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
-    next(): void{
-      let rect = this.carousel.nativeElement.getBoundingClientRect().width;
-      const isLastSlide = this.value === this.reccGames.length - 1;
-      const newIndex = isLastSlide ? 0 : this.value + 1;
-      this.value = newIndex;
-      this.slide = rect * this.value;
-      console.log(this.value, this.slide);
+    nextRecc(): void{
+      let rect = this.carouselOffer.nativeElement.getBoundingClientRect().width;
+      const isLastSlide = this.valueRecc === this.reccGames.length - 1;
+      const newIndex = isLastSlide ? 0 : this.valueRecc + 1;
+      this.valueRecc = newIndex;
+      this.slideRecc = rect * this.valueRecc;
     }
     // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
-    previous(): void{
-      let rect = this.carousel.nativeElement.getBoundingClientRect().width;
-      const isFirstSlide = this.value === 0;
-      const newIndex = isFirstSlide ? this.reccGames.length - 1 : this.value - 1;
-      this.value = newIndex;
-      this.slide = rect * this.value;
-      console.log(this.value, this.slide);
+    previousRecc(): void{
+      let rect = this.carouselOffer.nativeElement.getBoundingClientRect().width;
+      const isFirstSlide = this.valueRecc === 0;
+      const newIndex = isFirstSlide ? this.reccGames.length - 1 : this.valueRecc - 1;
+      this.valueRecc = newIndex;
+      this.slideRecc = rect * this.valueRecc;
+    }
+
+
+    // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
+    nextOffer(): void{
+      let rect = this.carouselOffer.nativeElement.getBoundingClientRect().width;
+      const isLastSlide = this.valueOffer === this.offersGames.length - 1;
+      const newIndex = isLastSlide ? 0 : this.valueOffer + 1;
+      this.valueOffer = newIndex;
+      this.slideOffer = rect * this.valueOffer;
+    }
+    // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
+    previousOffer(): void{
+      let rect = this.carouselOffer.nativeElement.getBoundingClientRect().width;
+      const isFirstSlide = this.valueOffer === 0;
+      const newIndex = isFirstSlide ? this.offersGames.length - 1 : this.valueOffer - 1;
+      this.valueOffer = newIndex;
+      this.slideOffer = rect * this.valueOffer;
     }
 }
