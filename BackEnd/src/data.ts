@@ -12,6 +12,7 @@ export const sample_game: Game[] = [{
     description:'An indie game created in reflection of fear of pigeons, like a pigeon nightmare you can not escape',
     releaseDate:'24-02-2019',
     specialOffer:false,
+    discount:0,
     price:0
 
 },{
@@ -26,6 +27,7 @@ export const sample_game: Game[] = [{
     description:'A most popular racing game of all time',
     releaseDate:'12-12-2005',
     specialOffer:true,
+    discount:10,
     price:5
 },{
     id: 3,
@@ -38,6 +40,7 @@ export const sample_game: Game[] = [{
     author:'Firefly Studio',
     description:'An old and popular strategy game, based on crusader conquest to free the holy city',
     releaseDate:'05-03-2003',
-    specialOffer:false,
-    price:10
+    specialOffer:true,
+    discount:20,
+    price:7.5
 }]

@@ -10,5 +10,6 @@ export class Game{
     description!:string;
     releaseDate!:string;
     specialOffer!:boolean;
+    discount?:number;
     price!:number;
 }

@@ -10,9 +10,9 @@
     --selected-header-link:rgba(255, 213, 106, 1);
     --text-normal:rgba(255, 255, 255, 1);
     --heading-text:rgba(219, 131, 67, 1);
-    --sale-tag-bg:rgba(71, 135, 31, 1);
-    --sale-tag-txt:rgba(30, 188, 74, 1);
-    --price-sale-tag-bg:rgba(187, 187, 187, 1);
+    --sale-tag-bg:rgba(71, 135, 31, 0.8);
+    --sale-tag-txt:rgb(168, 250, 191);
+    --price-sale-tag-bg:rgba(187, 187, 187, 0.8);
     --tag-bg:rgba(116, 116, 116, 1);
     --title:rgba(219, 131, 67, 1);
     --card-container:rgba(54, 54, 54, 1);
@@ -29,9 +29,11 @@
     --price-font:1.5rem;
     --date-font:0.8rem; 
     --button-font:1.1rem;
+    --sale-font:1.4rem;
 
     --date-weight:300;
     --price-weight:600;
+    --sale-weight:800;
   }
   
   html{

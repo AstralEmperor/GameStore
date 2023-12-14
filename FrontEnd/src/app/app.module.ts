@@ -9,6 +9,7 @@ import { TagsComponent } from './components/partials/tags/tags.component';
 import { BuyButtonComponent } from './components/partials/buttons/buy-button/buy-button.component';
 import { AddToLibraryButtonComponent } from './components/partials/buttons/add-to-library-button/add-to-library-button.component';
 import { RatingComponent } from './components/partials/rating/rating.component';
+import { FooterComponent } from './components/partials/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RatingComponent } from './components/partials/rating/rating.component';
     TagsComponent,
     BuyButtonComponent,
     AddToLibraryButtonComponent,
-    RatingComponent
+    RatingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

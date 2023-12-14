@@ -13,6 +13,7 @@ export interface Game{
         description:string;
         releaseDate:string;
         specialOffer:boolean;
+        discount:number;
         price:number;
 }
 // Schema
@@ -28,6 +29,7 @@ export const GameSchema = new Schema<Game>(
     description:{type: String, required:true},
     releaseDate:{type: String, required:true},
     specialOffer:{type: Boolean, default:false},
+    discount:{type: Number, required:false},
     price:{type: Number,required:true}
 },{
     toJSON:{
