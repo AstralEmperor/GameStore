@@ -14,6 +14,7 @@ export class StoreComponent{
     gamesRecc:Game[] = [];
     valueRecc:number = 0;
     slideRecc: number = 0;
+    isHovered:boolean = false;
 
     gamesOffer:Game[] = [];
     valueOffer:number = 0;
@@ -25,6 +26,9 @@ export class StoreComponent{
      this.gamesOffer = gameService.getAll();
     }
 
+    ngOnInit(){
+      this.automaticReccCarousel();
+    }
     @ViewChild('carouselRecc',{static:true}) carouselRecc!:ElementRef;
     @ViewChild('carouselOffer',{static:true}) carouselOffer!:ElementRef;
 
@@ -37,7 +41,13 @@ export class StoreComponent{
       return this.gamesOffer.filter(x => x.specialOffer == true);
     }
 
-    // takes the current slide 
+    // Automatic carousel, switched based on timer (condition doesnt work properly yet)
+    automaticReccCarousel(){
+      (this.carouselRecc.nativeElement as HTMLElement).matches(':hover') ? this.isHovered == true : this.isHovered == false;
+      return this.isHovered == false 
+      ? setInterval(()=> this.nextReccButton(),4000)
+      : '';
+      }
 
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextReccButton(): void{
@@ -58,6 +68,7 @@ export class StoreComponent{
       this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
     }
 
+    
 
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextOfferButton(): void{
@@ -77,4 +88,5 @@ export class StoreComponent{
       this.valueOffer = newIndex;
       this.slideOffer = itemCarouselWidthOffer * this.valueOffer;
     }
+
 }

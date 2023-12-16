@@ -57,7 +57,7 @@ li{
 .cardRecc__part2{
     width:calc(100%/2);
     text-align:center;
-    padding-block:2rem;
+    padding-block:2.25rem;
     background-color:var(--card-info);
     height:auto;
 }
@@ -69,8 +69,16 @@ li{
     padding-bottom:2rem;
     padding-inline:3rem;
 }
+.cardRecc__rating-wrap{
+    display:flex;
+    align-items:center;
+}
 .cardRecc__h3{
     font-size:var(--heading-font);
+}
+.cardRecc__author{
+    font-weight:var(--author-weight);
+    font-size:var(--author-font);
 }
 .cardRecc__date{
     text-align:left;

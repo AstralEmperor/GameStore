@@ -9,11 +9,13 @@
     --nav-bg:rgba(182, 107, 53, 1);
     --selected-header-link:rgba(255, 213, 106, 1);
     --text-normal:rgba(255, 255, 255, 1);
+    --text-normal-hover:rgb(219, 219, 219);
     --heading-text:rgba(219, 131, 67, 1);
     --sale-tag-bg:rgba(71, 135, 31, 0.8);
     --sale-tag-txt:rgb(168, 250, 191);
     --price-sale-tag-bg:rgba(187, 187, 187, 0.8);
     --tag-bg:rgba(116, 116, 116, 1);
+    --tag-bg-hover:rgb(104, 104, 104);
     --title:rgba(219, 131, 67, 1);
     --card-container:rgba(54, 54, 54, 1);
     --empty-image:rgba(217, 217, 217, 1);
@@ -22,6 +24,10 @@
     --buy-btn-hover:rgb(63, 121, 28);
     --text-hover:rgb(226, 226, 226);
     --price-body-clr:rgb(59, 59, 58);
+    --footer-btn-bg:rgb(95, 95, 95);
+    --footer-bg:rgba(182, 107, 53, 1);
+
+    --shadow-header:rgba(40, 39, 38, 1);
 
     --nav-font:1.5rem;
     --heading-font:2rem;
@@ -30,15 +36,19 @@
     --date-font:0.8rem; 
     --button-font:1.1rem;
     --sale-font:1.4rem;
+    --author-font:0.9rem;
 
     --date-weight:300;
     --price-weight:600;
     --sale-weight:800;
+    --author-weight:200;
+
+    --letter-spacing-normal:0.05em;
   }
   
   html{
     font-family: 'Roboto Condensed', sans-serif;
-    letter-spacing:0.05em;
+    letter-spacing:var(--letter-spacing-normal);
   }
   body{
     background-color:var(--body);

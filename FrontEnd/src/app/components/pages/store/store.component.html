@@ -5,7 +5,7 @@
 <!-- part 1 -->
 <div class="store__newRecommended">
  <div class="store__newRecommended-H3 title">
-    <h3>New & Recommended</h3>
+    <h3>Recommended</h3>
  </div>
  <div class="store__newRecommended-container">
     <div class="store__newRecommended-wrap">
@@ -21,10 +21,11 @@
                     <div class="cardRecc__part2">
                         <div class="cardRecc__h3-wrap">
                             <h3 class="cardRecc__h3">{{game.name}}</h3>
+                            <p class="cardRecc__author">{{game.author}}</p>
                         </div>
                       <div class="cardRecc-tagNcost-wrap">
-                        <div>
-                            <rating [stars]= "game.stars"></rating>
+                        <div class="cardRecc__rating-wrap">
+                            <rating [stars]="game.stars"></rating>
                         </div>
                         <div class="cardRecc__tags">
                             <div *ngFor="let tag of game.tags">
@@ -85,7 +86,7 @@
     <!-- part 3 -->
     <!-- <div class="store__newRecommended">
         <div class="store__newRecommended-H3 title">
-           <h3>Special Offers</h3>
+           <h3>Categories</h3>
         </div>
         <div class="store__newRecommended-container">
            <div class="store__newRecommended-wrap">

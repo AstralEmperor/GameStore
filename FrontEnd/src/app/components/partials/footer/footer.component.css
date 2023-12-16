@@ -1,0 +1,32 @@
+.footer{
+    background-color:var(--footer-bg);
+    margin-top:3rem;
+}
+.footer__wrap{
+    display:flex;
+    justify-content:space-between;
+    color:var(--text-normal);
+    margin-inline:5rem;
+    padding-block:1.5rem;
+}
+button{
+    width:2rem;
+    height:2rem;
+    padding:0.5rem;
+    background-color:var(--footer-btn-bg);
+    border:none;
+}
+button:hover{
+    cursor: pointer;
+}
+
+button > img{
+    width:100%;
+    height:100%;
+}
+.footer__addGame-wrap,
+.footer__downloadGame-wrap{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}

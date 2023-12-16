@@ -7,3 +7,8 @@
     border:none;
     height:fit-content;
 }
+.tag:hover{
+    cursor: pointer;
+    color:var(--text-normal-hover);
+    background-color:var(--tag-bg-hover);
+}
