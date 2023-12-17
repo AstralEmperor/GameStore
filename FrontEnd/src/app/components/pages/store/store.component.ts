@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Game } from '../../shared/models/Game';
 import { GamesService } from '../../services/games.service';
 
@@ -14,7 +14,7 @@ export class StoreComponent{
     gamesRecc:Game[] = [];
     valueRecc:number = 0;
     slideRecc: number = 0;
-    isHovered:boolean = false;
+    autoCarousel:any;
 
     gamesOffer:Game[] = [];
     valueOffer:number = 0;
@@ -29,7 +29,6 @@ export class StoreComponent{
     ngOnInit(){
       this.automaticReccCarousel();
     }
-    @ViewChild('carouselRecc',{static:true}) carouselRecc!:ElementRef;
     @ViewChild('carouselOffer',{static:true}) carouselOffer!:ElementRef;
 
     // filters game data, and returns only games with rating higher or equal to 4
@@ -41,17 +40,20 @@ export class StoreComponent{
       return this.gamesOffer.filter(x => x.specialOffer == true);
     }
 
-    // Automatic carousel, switched based on timer (condition doesnt work properly yet)
+    // Automatic reccomended carousel, switches slide based on set interval
     automaticReccCarousel(){
-      (this.carouselRecc.nativeElement as HTMLElement).matches(':hover') ? this.isHovered == true : this.isHovered == false;
-      return this.isHovered == false 
-      ? setInterval(()=> this.nextReccButton(),4000)
-      : '';
-      }
+      return this.autoCarousel = setInterval(()=> this.nextReccButton(),4000);
+    }
+
+      // on mouse enter carousel, clears set interval
+    onMouseEnterCarouselRecc(){
+        clearInterval(this.autoCarousel);
+    } 
 
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextReccButton(): void{
-      const itemCarouselWidthRecc:number = this.carouselRecc.nativeElement.getBoundingClientRect().width;
+      const cards = document.querySelectorAll('.cardRecc_li')[0];
+      const itemCarouselWidthRecc:number = cards.getBoundingClientRect().width;
       const isLastSlide = this.valueRecc === this.filterGamesWithHighRating().length - 1;
       const newIndex = isLastSlide ? 0 : this.valueRecc + 1;
 
@@ -60,33 +62,44 @@ export class StoreComponent{
     }
     // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
     previousReccButton(): void{
-      const itemCarouselWidthRecc:number = this.carouselRecc.nativeElement.getBoundingClientRect().width;
+      const cards = document.querySelectorAll('.cardRecc_li')[0];
+      const itemCarouselWidthRecc = cards.getBoundingClientRect().width;
       const isFirstSlide = this.valueRecc === 0;
       const newIndex = isFirstSlide ? this.filterGamesWithHighRating().length - 1 : this.valueRecc - 1;
 
       this.valueRecc = newIndex;
       this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
     }
-
     
-
-    // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
+    // on button click right, go to next slide ( takes current slide, and next slide, , calculates total slides based on formula itemLength/itemsPerSlide, if next slide doesnt exist, return)
     nextOfferButton(): void{
-      const itemCarouselWidthOffer:number = this.carouselOffer.nativeElement.getBoundingClientRect().width;
-      const isLastSlide = this.valueOffer === this.filterGamesOnSale().length - 1;
+      const cards = document.querySelectorAll('.cardOffer_li-item')[0];
+      const cardWrap = parseFloat(getComputedStyle(this.carouselOffer.nativeElement).gap);
+
+      const itemsPerSlide = 3;
+      const totalSlides = Math.ceil(this.filterGamesOnSale().length/itemsPerSlide);
+      
+      const itemCarouselWidthOffer = cards.getBoundingClientRect().width;
+      const isLastSlide = this.valueOffer === totalSlides - 1;
       const newIndex = isLastSlide ? 0 : this.valueOffer + 1;
 
       this.valueOffer = newIndex;
-      this.slideOffer = itemCarouselWidthOffer * this.valueOffer;
+      this.slideOffer = this.valueOffer === 0 ? itemCarouselWidthOffer * this.valueOffer : itemCarouselWidthOffer * this.valueOffer + cardWrap;
     }
-    // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
+    // on button click right, go to previous slide ( takes current slide, and previous slide, calculates total slides based on formula itemLength/itemsPerSlide, if previous slide doesnt exist, return)
     previousOfferButton(): void{
-      const itemCarouselWidthOffer:number = this.carouselOffer.nativeElement.getBoundingClientRect().width;
+      const cards = document.querySelectorAll('.cardOffer_li-item')[0];
+      const cardWrap = parseFloat(getComputedStyle(this.carouselOffer.nativeElement).gap);
+
+      const itemsPerSlide = 3;
+      const totalSlides = Math.ceil(this.filterGamesOnSale().length/itemsPerSlide);
+
+      const itemCarouselWidthOffer = cards.getBoundingClientRect().width;
       const isFirstSlide = this.valueOffer === 0;
-      const newIndex = isFirstSlide ? this.filterGamesOnSale().length - 1 : this.valueOffer - 1;
+      const newIndex = isFirstSlide ? totalSlides - 1 : this.valueOffer - 1;
 
       this.valueOffer = newIndex;
-      this.slideOffer = itemCarouselWidthOffer * this.valueOffer;
+      this.slideOffer = this.valueOffer === 0 ? itemCarouselWidthOffer * this.valueOffer : itemCarouselWidthOffer * this.valueOffer + cardWrap;
     }
 
 }
