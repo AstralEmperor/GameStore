@@ -10,6 +10,7 @@ import { BuyButtonComponent } from './components/partials/buttons/buy-button/buy
 import { AddToLibraryButtonComponent } from './components/partials/buttons/add-to-library-button/add-to-library-button.component';
 import { RatingComponent } from './components/partials/rating/rating.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
+import { StorePartCategoryComponent } from './components/partials/store-part-category/store-part-category.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     BuyButtonComponent,
     AddToLibraryButtonComponent,
     RatingComponent,
-    FooterComponent
+    FooterComponent,
+    StorePartCategoryComponent
   ],
   imports: [
     BrowserModule,

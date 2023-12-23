@@ -1,10 +1,11 @@
 import { Game } from "./configs/models/games.model";
 
+
 export const sample_game: Game[] = [{
     id: 1,
     name:'Dreamers',
     imageUrl:'assets/dreamers.png',
-    tags:['Indie','Action','FreeToPlay','Platformer'],
+    tags:['indie','action','freetoplay','platformer'],
     favourite:false,
     stars:4,
     owned:false,
@@ -19,7 +20,7 @@ export const sample_game: Game[] = [{
     id: 2,
     name:'Need for Speed - Most Wanted',
     imageUrl:'assets/mostwanted.jpg',
-    tags:['Racing','Action','Coop'],
+    tags:['racing','action','coop'],
     favourite:false,
     stars:3.8,
     owned:false,
@@ -33,7 +34,7 @@ export const sample_game: Game[] = [{
     id: 3,
     name:'Stronghold Crusader 2',
     imageUrl:'assets/Crusader2.webp',
-    tags:['Strategy','Coop','Multiplayer'],
+    tags:['strategy','coop','multiplayer'],
     favourite:false,
     stars:4.7,
     owned:false,
@@ -47,7 +48,7 @@ export const sample_game: Game[] = [{
     id: 4,
     name:'Counter-Strike 2',
     imageUrl:'assets/CSGO2.webp',
-    tags:['Action','FPS','Multiplayer','Coop','RPG'],
+    tags:['action','fps','multiplayer','coop','rpg'],
     favourite:false,
     stars:5,
     owned:false,
@@ -61,7 +62,7 @@ export const sample_game: Game[] = [{
     id: 5,
     name:'SpellForce 1',
     imageUrl:'assets/SpellForce.jpg',
-    tags:['Action','Strategy','Multiplayer','Coop','RPG'],
+    tags:['action','strategy','multiplayer','coop','rpg'],
     favourite:true,
     stars:4.67,
     owned:true,
@@ -72,3 +73,15 @@ export const sample_game: Game[] = [{
     discount:80,
     price:0.99
 }]
+
+export const sample_categories: any[] = [
+    { name: 'indie', count: 1 },
+    { name: 'action', count: 4 },
+    { name: 'freetoplay', count: 1 },
+    { name: 'strategy', count: 2 },
+    { name: 'multiplayer', count: 3 },
+    { name: 'coop', count: 4 },
+    { name: 'rpg', count: 2 },
+    { name: 'fps', count: 1 },
+    { name: 'racing', count: 1 }
+  ]

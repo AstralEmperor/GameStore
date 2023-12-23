@@ -84,32 +84,26 @@
       </div>
     </div>
     <!-- part 3 -->
-    <!-- <div class="store__newRecommended">
+    <div class="store__newRecommended">
         <div class="store__newRecommended-H3 title">
            <h3>Categories</h3>
         </div>
         <div class="store__newRecommended-container">
            <div class="store__newRecommended-wrap">
            <div class="store__btnWrap">
-               <button class="store__arrow-previous button-switch" (click)="previousOfferButton()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
+               <button class="store__arrow-previous button-switch" (click)="previousCategoryButton()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
                <div class="store__newCards">
-                <ul #carouselOffer class="cardOffer" [ngStyle]="{'transform': 'translateX(' +- this.slideOffer + 'px)'}">
-                    <li *ngFor="let game of filterGamesOnSale()" class="cardOffer_li">
-                        <div class="cardOffer_li-item">
-                            <div class="cardOffer__part"> 
-                                <img loading="lazy" [src]="game.imageUrl" [alt]="game.name">
-                                <div *ngIf="game.specialOffer == true" class="cardOffer__saleWrap">
-                                    <div class="cardOffer__salePercent">{{'-' + game.discount + '%'}}</div>
-                                    <div class="cardOffer__price">{{game.price + '$'}}</div>
-                                </div>
-                            </div>
-                        </div>
-                   </li>  
+                <ul #cardCategory class="cardCategory" [ngStyle]="{'transform': 'translateX(' +- this.slideCategory + 'px)'}">
+                    <store-part-category class="cardCategory__li" link="" imageSrc="assets/Strategy.jpg" categoryTitle="StrategyGame.jpg" categoryName="STRATEGY"></store-part-category>
+                    <store-part-category class="cardCategory__li" link="" imageSrc="assets/FPS.jpg" categoryTitle="FPS.jpg" categoryName="FPS"></store-part-category>
+                    <store-part-category class="cardCategory__li" link="" imageSrc="assets/Racing.jpg" categoryTitle="RacingCategory.jpg" categoryName="RACING"></store-part-category>
+                    <store-part-category class="cardCategory__li" link="" imageSrc="assets/Co-op.jpg" categoryTitle="Co-op.jpg" categoryName="COOP"></store-part-category>
+                    <store-part-category class="cardCategory__li" link="" imageSrc="assets/Survival.jpg" categoryTitle="Survival.jpg" categoryName="SURVIVAL"></store-part-category>
                 </ul>
                </div>
-               <button class="store__arrow-next button-switch" (click)="nextOfferButton()"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
+               <button class="store__arrow-next button-switch" (click)="nextCategoryButton()"><img src="/assets/arrow-right.png" alt="arrow-previous.png"></button>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 </section>

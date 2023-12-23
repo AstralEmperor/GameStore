@@ -1,7 +1,7 @@
-import { Category } from "./app/components/shared/models/Categories"
-import { Game } from "./app/components/shared/models/Game"
-
-export const sample_game: Game[] = [{
+"use strict";
+exports.__esModule = true;
+exports.sample_game = void 0;
+exports.sample_game = [{
     id: 1,
     name:'Dreamers',
     imageUrl:'assets/dreamers.png',
@@ -74,14 +74,3 @@ export const sample_game: Game[] = [{
     price:0.99
 }]
 
-export const sample_categories: Category[] = [
-    { name: 'Indie', count: 1 },
-    { name: 'Action', count: 4 },
-    { name: 'FreeToPlay', count: 1 },
-    { name: 'Strategy', count: 2 },
-    { name: 'Multiplayer', count: 3 },
-    { name: 'Coop', count: 4 },
-    { name: 'RPG', count: 2 },
-    { name: 'FPS', count: 1 },
-    { name: 'Racing', count: 1 }
-  ]
