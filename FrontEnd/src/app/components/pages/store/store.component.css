@@ -166,10 +166,9 @@ li{
     transition: 0.5s ease-in-out;
     color:var(--text-normal);
     min-height:30rem;
-    gap:1rem;
 }
 .cardCategory__li{
     display:flex;
-    min-height:100%;
+    padding-inline:0.5rem;
     min-width:calc(100%/4);
 }

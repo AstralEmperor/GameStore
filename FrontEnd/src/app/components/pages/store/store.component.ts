@@ -85,60 +85,50 @@ export class StoreComponent{
       this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
     }
     
-    // on button click right, go to next slide ( takes current slide, and next slide, , calculates total slides based on formula itemLength/itemsPerSlide, if next slide doesnt exist, return)
+    // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextOfferButton(): void{
       try{
-      const cards = document.querySelectorAll('.cardOffer_li-item')[0];
-      const cardWrap = parseFloat(getComputedStyle(this.carouselOffer.nativeElement).gap);
-
+      const cards = document.querySelectorAll('.cardOffer_li-item');
       const itemsPerSlide = 3;
-      const totalSlides = Math.ceil(this.filterGamesOnSale().length/itemsPerSlide);
-      
-      const itemCarouselWidthOffer = cards.getBoundingClientRect().width;
-      const isLastSlide = this.valueOffer === totalSlides - 1;
+      const itemCarouselWidthOffer = cards[0].getBoundingClientRect().width;
+
+      const isLastSlide = this.valueOffer >= cards.length - itemsPerSlide;
       const newIndex = isLastSlide ? 0 : this.valueOffer + 1;
 
       this.valueOffer = newIndex;
-      this.slideOffer = isLastSlide ? itemCarouselWidthOffer * this.valueOffer : itemCarouselWidthOffer * this.valueOffer + cardWrap;
+      this.slideOffer = itemCarouselWidthOffer * this.valueOffer;
     }catch(error){
       console.log(error);
     }
     }
-    // on button click right, go to previous slide ( takes current slide, and previous slide, calculates total slides based on formula itemLength/itemsPerSlide, if previous slide doesnt exist, return)
+    // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
     previousOfferButton(): void{
       try{
-      const cards = document.querySelectorAll('.cardOffer_li-item')[0];
-      const cardWrap = parseFloat(getComputedStyle(this.carouselOffer.nativeElement).gap);
-
+      const cards = document.querySelectorAll('.cardOffer_li-item');
       const itemsPerSlide = 3;
-      const totalSlides = Math.ceil(this.filterGamesOnSale().length/itemsPerSlide);
+      const itemCarouselWidthOffer = cards[0].getBoundingClientRect().width;
 
-      const itemCarouselWidthOffer = cards.getBoundingClientRect().width;
-      const isFirstSlide = this.valueOffer === 0;
-      const newIndex = isFirstSlide ? totalSlides - 1 : this.valueOffer - 1;
+      const isFirstSlide = this.valueOffer <= 0;
+      const newIndex = isFirstSlide ? cards.length - itemsPerSlide : this.valueOffer - 1;
 
       this.valueOffer = newIndex;
-      this.slideOffer = isFirstSlide ? itemCarouselWidthOffer * this.valueOffer : itemCarouselWidthOffer * this.valueOffer + cardWrap;
+      this.slideOffer = isFirstSlide ? itemCarouselWidthOffer * this.valueOffer : itemCarouselWidthOffer * this.valueOffer;
       }catch(error){
         console.log(error);
       }
     }
-
+// on button click left, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextCategoryButton():void{
       try{
-        const cards = document.querySelectorAll('.cardCategory__li');
-        const cardWrap = parseFloat(getComputedStyle(this.cardCategory.nativeElement).gap);
-        
+        const cards = document.querySelectorAll('.cardCategory__li');   
         const itemCategoryCarouselWidth:number = cards[0].getBoundingClientRect().width;
+        const itemsPerSlide = 4;
 
-        const itemsPerSlide = 3;
-        const totalSlides = Math.ceil(cards.length/itemsPerSlide);
-
-        const isLastSlide = this.valueCategory === totalSlides - 1;
+        const isLastSlide = this.valueCategory >= cards.length - itemsPerSlide;
         const newIndex = isLastSlide ? 0 : this.valueCategory + 1;
 
         this.valueCategory = newIndex;
-        this.slideCategory = isLastSlide ? itemCategoryCarouselWidth * this.valueCategory : itemCategoryCarouselWidth * this.valueCategory + cardWrap;
+        this.slideCategory = itemCategoryCarouselWidth * this.valueCategory;
     }catch(error){
       console.warn(error);
     }
@@ -147,18 +137,14 @@ export class StoreComponent{
     previousCategoryButton():void{
       try{
         const cards = document.querySelectorAll('.cardCategory__li');
-        const cardWrap = parseFloat(getComputedStyle(this.cardCategory.nativeElement).gap);
-
         const itemCategoryCarouselWidth:number = cards[0].getBoundingClientRect().width;
-
         const itemsPerSlide = 4;
-        const totalSlides = Math.ceil(cards.length/itemsPerSlide);
-
-        const isFirstSlide = this.valueCategory === 0;
-        const newIndex = isFirstSlide ? totalSlides - 1 : this.valueCategory - 1;
+        
+        const isFirstSlide = this.valueCategory <= 0; //if there are less items
+        const newIndex = isFirstSlide ? cards.length - itemsPerSlide : this.valueCategory - 1;
   
         this.valueCategory = newIndex;
-        this.slideCategory = isFirstSlide ? itemCategoryCarouselWidth * this.valueCategory : itemCategoryCarouselWidth * this.valueCategory + cardWrap;
+        this.slideCategory = itemCategoryCarouselWidth * this.valueCategory;
       }catch(error){
         console.warn(error);
       }
