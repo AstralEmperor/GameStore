@@ -42,4 +42,4 @@ export const GameSchema = new Schema<Game>(
   }
 )
 
-export const gameModel = model<Game>('game', GameSchema);
+export const gameModel = model<Game>('games', GameSchema);

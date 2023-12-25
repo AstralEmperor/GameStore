@@ -1,6 +1,7 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Game } from '../../shared/models/Game';
 import { GamesService } from '../../services/games.service';
+import { Observable } from 'rxjs';
 
 
 
@@ -23,9 +24,19 @@ export class StoreComponent{
     valueCategory:number = 0;
     slideCategory: number = 0;
 
-    constructor(private gameService:GamesService){
-     this.gamesRecc = gameService.getAll(); 
-     this.gamesOffer = gameService.getAll();
+    constructor(private gameService: GamesService){
+      let gamesObservableRecc:Observable<Game[]>
+      let gamesObservableOffer:Observable<Game[]>
+      gamesObservableRecc = gameService.getAll(); 
+      gamesObservableOffer = gameService.getAll();
+
+      gamesObservableRecc.subscribe((serverGames)=>{
+        this.gamesRecc = serverGames;
+      })
+
+      gamesObservableOffer.subscribe((serverGames)=>{
+        this.gamesOffer = serverGames;
+      })
     }
 
     ngOnInit(){
