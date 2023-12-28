@@ -14,7 +14,7 @@ export class StoreComponent{
 
     gamesRecc:Game[] = [];
     valueRecc:number = 0;
-    slideRecc: number = 0;
+    slideRecc:number = 0;
     autoCarouselRecc:any;
 
     gamesOffer:Game[] = [];
@@ -42,6 +42,7 @@ export class StoreComponent{
     ngOnInit(){
       this.automaticReccCarousel();
     }
+
     @ViewChild('carouselOffer',{static:true}) carouselOffer!:ElementRef;
     @ViewChild('cardCategory',{static:true}) cardCategory!:ElementRef;
 
@@ -63,28 +64,27 @@ export class StoreComponent{
     onMouseEnterCarouselRecc(){
         clearInterval(this.autoCarouselRecc);
     } 
+          // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
+        nextReccButton(): void{
+            const cards = document.querySelectorAll('.cardRecc_li')[0];
+            const itemCarouselWidthRecc:number = cards.getBoundingClientRect().width;
+            const isLastSlide = this.valueRecc === this.filterGamesWithHighRating().length - 1;
+            const newIndex = isLastSlide ? 0 : this.valueRecc + 1;
+      
+            this.valueRecc = newIndex;
+            this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
+          }
 
-    // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
-    nextReccButton(): void{
-      const cards = document.querySelectorAll('.cardRecc_li')[0];
-      const itemCarouselWidthRecc:number = cards.getBoundingClientRect().width;
-      const isLastSlide = this.valueRecc === this.filterGamesWithHighRating().length - 1;
-      const newIndex = isLastSlide ? 0 : this.valueRecc + 1;
+      // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
+      previousReccButton(): void{
+        const cards = document.querySelectorAll('.cardRecc_li')[0];
+        const itemCarouselWidthRecc = cards.getBoundingClientRect().width;
+        const isFirstSlide = this.valueRecc === 0;
+        const newIndex = isFirstSlide ? this.filterGamesWithHighRating().length - 1 : this.valueRecc - 1;
 
-      this.valueRecc = newIndex;
-      this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
-    }
-    // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
-    previousReccButton(): void{
-      const cards = document.querySelectorAll('.cardRecc_li')[0];
-      const itemCarouselWidthRecc = cards.getBoundingClientRect().width;
-      const isFirstSlide = this.valueRecc === 0;
-      const newIndex = isFirstSlide ? this.filterGamesWithHighRating().length - 1 : this.valueRecc - 1;
-
-      this.valueRecc = newIndex;
-      this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
-    }
-    
+        this.valueRecc = newIndex;
+        this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
+      }
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextOfferButton(): void{
       try{

@@ -65,7 +65,7 @@
            <button class="store__arrow-previous button-switch" (click)="previousOfferButton()"><img src="/assets/arrow-left.png" alt="arrow-previous.png"></button>
            <div class="store__newCards">
             <ul #carouselOffer class="cardOffer" [ngStyle]="{'transform': 'translateX(' +- this.slideOffer + 'px)'}">
-                <li *ngFor="let game of filterGamesOnSale(); let i = index" class="cardOffer_li">
+                <li *ngFor="let game of filterGamesOnSale(); let i = index;" class="cardOffer_li">
                     <div class="cardOffer_li-item">
                         <div class="cardOffer__part"> 
                             <img loading="lazy" [src]="game.imageUrl" [alt]="game.name">
