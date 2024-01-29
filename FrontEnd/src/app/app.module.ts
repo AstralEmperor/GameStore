@@ -12,6 +12,7 @@ import { AddToLibraryButtonComponent } from './components/partials/buttons/add-t
 import { RatingComponent } from './components/partials/rating/rating.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { StorePartCategoryComponent } from './components/partials/store-part-category/store-part-category.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StorePartCategoryComponent } from './components/partials/store-part-cat
     AddToLibraryButtonComponent,
     RatingComponent,
     FooterComponent,
-    StorePartCategoryComponent
+    StorePartCategoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

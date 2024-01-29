@@ -26,6 +26,9 @@ li{
     text-decoration:none;
     color:var(--text-normal);
 }
+.link:not(.selected-link):hover{
+    color:var(--text-normal-hover);
+}
 .header__links * a{
     text-decoration:none;
 }
@@ -40,4 +43,7 @@ li{
 .selected-link{
     color:var(--selected-header-link);
     border-bottom:2px solid var(--selected-header-link);
+  }
+  .selected-link:hover{
+    color:var(--selected-header-link-hover);
   }

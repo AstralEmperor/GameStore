@@ -8,6 +8,7 @@
     --body:rgba(40, 39, 38, 1);
     --nav-bg:rgba(182, 107, 53, 1);
     --selected-header-link:rgba(255, 213, 106, 1);
+    --selected-header-link-hover:rgb(238, 191, 74);
     --text-normal:rgba(255, 255, 255, 1);
     --text-normal-hover:rgb(219, 219, 219);
     --heading-text:rgba(219, 131, 67, 1);
@@ -38,6 +39,9 @@
     --button-font:1.1rem;
     --sale-font:1.4rem;
     --author-font:0.9rem;
+
+    --small-img-size:1.5rem;
+    --gz-icon-size:4rem;
 
     --date-weight:300;
     --price-weight:600;
