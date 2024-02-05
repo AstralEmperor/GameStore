@@ -42,6 +42,13 @@ export class StoreComponent{
     ngOnInit(){
       this.automaticReccCarousel();
     }
+    ngOnDestroy(){
+      clearInterval(this.autoCarouselRecc);
+    }
+      // Automatic reccomended carousel, switches slide based on set interval
+    automaticReccCarousel(){
+        return this.autoCarouselRecc = setInterval(()=> this.nextReccButton(),4000);
+    }
 
     @ViewChild('carouselOffer',{static:true}) carouselOffer!:ElementRef;
     @ViewChild('cardCategory',{static:true}) cardCategory!:ElementRef;
@@ -55,17 +62,13 @@ export class StoreComponent{
       return this.gamesOffer.filter(x => x.specialOffer == true);
     }
 
-    // Automatic reccomended carousel, switches slide based on set interval
-    automaticReccCarousel(){
-      return this.autoCarouselRecc = setInterval(()=> this.nextReccButton(),4000);
-    }
-
       // on mouse enter carousel, clears set interval
     onMouseEnterCarouselRecc(){
         clearInterval(this.autoCarouselRecc);
     } 
           // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
         nextReccButton(): void{
+          try{
             const cards = document.querySelectorAll('.cardRecc_li')[0];
             const itemCarouselWidthRecc:number = cards.getBoundingClientRect().width;
             const isLastSlide = this.valueRecc === this.filterGamesWithHighRating().length - 1;
@@ -73,10 +76,14 @@ export class StoreComponent{
       
             this.valueRecc = newIndex;
             this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
+          }catch(error){
+              console.warn(error);
+            }
           }
 
       // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
       previousReccButton(): void{
+        try{
         const cards = document.querySelectorAll('.cardRecc_li')[0];
         const itemCarouselWidthRecc = cards.getBoundingClientRect().width;
         const isFirstSlide = this.valueRecc === 0;
@@ -84,6 +91,10 @@ export class StoreComponent{
 
         this.valueRecc = newIndex;
         this.slideRecc = itemCarouselWidthRecc * this.valueRecc;
+        }catch(error){
+          console.warn(error);
+        }
+        
       }
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextOfferButton(): void{
@@ -98,7 +109,7 @@ export class StoreComponent{
       this.valueOffer = newIndex;
       this.slideOffer = itemCarouselWidthOffer * this.valueOffer;
     }catch(error){
-      console.log(error);
+      console.warn(error);
     }
     }
     // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)

@@ -5,13 +5,13 @@
         </div>
         <div class="header__links">
             <ul class="header__ul">
-                <li><a routerLink="/" class="link selected-link">Store</a></li>
-                <li><a routerLink="/" class="link">Library</a></li>
-                <li><a routerLink="/" class="link">Community</a></li>
-                <li><a routerLink="/" class="link">Profile</a></li>
+                <li><a (click)="changeSelectedLink(0)" routerLink="/" class="link selected-link">Store</a></li>
+                <li><a (click)="changeSelectedLink(1)" routerLink="/" class="link">Library</a></li>
+                <li><a (click)="changeSelectedLink(2)" routerLink="/" class="link">Community</a></li>
+                <li><a (click)="changeSelectedLink(3)" routerLink="/" class="link">Profile</a></li>
             </ul>
             <div class="header__loginWrap">
-                <a routerLink="/login" class="link">Login</a>
+                <a (click)="changeSelectedLink(4)" routerLink="/login" class="link">Login</a>
             </div>
         </div>
     </div>

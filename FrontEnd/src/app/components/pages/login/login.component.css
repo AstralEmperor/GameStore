@@ -1,4 +1,3 @@
-
 .login{
     color:var(--text-normal);
     display:flex;
@@ -60,7 +59,9 @@
     gap:1rem;
     width:var(--small-img-size);
     height:var(--small-img-size);
+    justify-content:center;
     margin-bottom:2rem;
+    object-fit:cover;
 }
 .login-socialMedia > img{
     width:100%;
@@ -72,4 +73,24 @@
 .login-registerWrap > a{
     text-decoration:none;
     color:var(--text-normal);
+}
+.login-registerWrap > a:hover{
+    cursor:pointer;
+    color:var(--text-normal-hover);
+}
+input{
+    padding-block:0.15rem;
+    padding-inline:0.25rem;
+}
+.login-btn-send{
+    font-size:var(--btn-font);
+    background-color:var(--primary-btn);
+    color:var(--text-normal);
+    padding-block:0.3rem;
+    padding-inline:0.5rem;
+    border:none;
+}
+.login-btn-send:hover{
+    cursor:pointer;
+    color:var(--text-normal-hover);
 }

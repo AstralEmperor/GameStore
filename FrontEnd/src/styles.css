@@ -28,7 +28,7 @@
     --footer-btn-bg:rgb(95, 95, 95);
     --footer-btn-bg-hover:rgb(73, 73, 73);
     --footer-bg:rgba(182, 107, 53, 1);
-
+    --primary-btn:rgba(182, 107, 53, 1);
     --shadow-header:rgba(40, 39, 38, 1);
 
     --nav-font:1.5rem;
@@ -39,8 +39,10 @@
     --button-font:1.1rem;
     --sale-font:1.4rem;
     --author-font:0.9rem;
+    --btn-font:1rem;
 
     --small-img-size:1.5rem;
+    --email-img-size:1.8rem;
     --gz-icon-size:4rem;
 
     --date-weight:300;
