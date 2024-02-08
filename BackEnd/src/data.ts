@@ -1,4 +1,5 @@
 import { Game } from "./configs/models/games.model";
+import { User } from "./configs/models/users.model";
 
 
 export const sample_game: Game[] = [{
@@ -85,3 +86,19 @@ export const sample_categories: any[] = [
     { name: 'fps', count: 1 },
     { name: 'racing', count: 1 }
   ]
+
+  export const sample_users: User[] = [
+    { 
+      id:"1",
+      username:"Marko",
+      email:"warriorpronb55@gmail.com",
+      password: "123",
+      isAdmin: true
+    },{
+      id:"2",
+      username:"Milica",
+      email:"milicaca@gmail.com",
+      password:"sarma03",
+      isAdmin: false
+    }
+  ];

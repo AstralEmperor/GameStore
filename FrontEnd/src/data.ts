@@ -1,5 +1,6 @@
 import { Category } from "./app/components/shared/models/Categories"
 import { Game } from "./app/components/shared/models/Game"
+import { User } from "./app/components/shared/models/User" 
 
 export const sample_game: Game[] = [{
     id: 1,
@@ -85,3 +86,17 @@ export const sample_categories: Category[] = [
     { name: 'FPS', count: 1 },
     { name: 'Racing', count: 1 }
   ]
+
+  export const sample_users: User[] = [
+    { 
+      username:"Marko",
+      email:"warriorpronb55@gmail.com",
+      password: "123",
+      isAdmin: true
+    },{
+      username:"Milica",
+      email:"milicaca@gmail.com",
+      password:"sarma03",
+      isAdmin: false
+    }
+  ];

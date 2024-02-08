@@ -18,6 +18,7 @@ router.get("/seed", asyncHandler (
         res.send("Seed is Done!")
     }
 ));
+// router for api /games
 router.get("/games", asyncHandler(
     async(req,res)=>{
     const games = await gameModel.find();
