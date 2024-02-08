@@ -13,6 +13,9 @@ import { RatingComponent } from './components/partials/rating/rating.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { StorePartCategoryComponent } from './components/partials/store-part-category/store-part-category.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,19 @@ import { LoginComponent } from './components/pages/login/login.component';
     RatingComponent,
     FooterComponent,
     StorePartCategoryComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut:3000,
+      positionClass:'toast-bottom-right',
+      newestOnTop:false
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,20 +3,20 @@
             <div class="gz-icon">
                 <img src="assets/GZ-icon.png" alt="gz-icon.png">
             </div>
-            <form class="login-form">
+            <form class="login-form" [formGroup] = "loginForm" (ngSubmit)="submit()">
                 <div class="login-inputField login-inputField--username">
                     <div class="label-wrap">
                         <img src="assets/user-icon.png" alt="user.png">
                         <label for="username-input">Username*</label>
                     </div>
-                    <input name="username-input" id="username-input" type="text" pattern="[A-Za-z1-9]{1,20}" required placeholder="Username">
+                    <input name="username-input" id="username-input" type="text" formControlName="username" pattern="[A-Za-z1-9]{1,20}" required placeholder="Username">
                 </div>
                 <div class="login-inputField login-inputField--password">
                     <div class="label-wrap">
                         <img src="assets/lock-icon.png" alt="user.png">
                         <label for="password-input">Password*</label>
                     </div>
-                    <input name="password-input" id="password-input" type="password" pattern="[A-Za-z1-9]{1,20}" required placeholder="Password">
+                    <input name="password-input" id="password-input" type="password" formControlName="password" pattern="[A-Za-z1-9]{1,20}" required placeholder="Password">
                 </div>
                 <div class="login-btn-wrap">
                     <button class="login-btn-send" type="submit">Login</button>

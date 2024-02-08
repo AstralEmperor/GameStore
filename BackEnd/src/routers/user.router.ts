@@ -4,7 +4,7 @@ import asyncHandler from "express-async-handler";
 import { User, userModel } from "../configs/models/users.model";
 import { sample_users } from "../data";
 import { HTTP_BAD_REQUEST } from "../configs/constants/http_status";
-
+import jwt from "jsonwebtoken";
 const router = Router();
 
 // sends json data from sample_users to the mongoDB Atlas
@@ -25,7 +25,7 @@ router.post("/login", asyncHandler(
         const {username, password} = req.body;
         const user = await userModel.findOne({username, password});
         if(user){
-            res.send(user);
+            res.send(generateTokenResponse(user));
         }
         res.status(HTTP_BAD_REQUEST).send("Account already exists!")
         return;
@@ -51,5 +51,17 @@ router.post("/register", asyncHandler(
         res.send(dbUser);
     }
 ))
+
+// generates JWT 
+const generateTokenResponse = (user:any) =>{
+    const token = jwt.sign({
+        username:user.username, isAdmin:user.isAdmin
+    }, "SomeRadomText", {
+        expiresIn:"30d"
+    });
+
+    user.token = token;
+    return user;
+}
 
 export default router;

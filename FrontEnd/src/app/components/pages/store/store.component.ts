@@ -47,7 +47,10 @@ export class StoreComponent{
     }
       // Automatic reccomended carousel, switches slide based on set interval
     automaticReccCarousel(){
+      if(this.gamesRecc.length > 1){
         return this.autoCarouselRecc = setInterval(()=> this.nextReccButton(),4000);
+      }
+      return;
     }
 
     @ViewChild('carouselOffer',{static:true}) carouselOffer!:ElementRef;
