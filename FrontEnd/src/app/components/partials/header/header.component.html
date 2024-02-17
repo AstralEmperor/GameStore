@@ -10,8 +10,11 @@
                 <li><a (click)="changeSelectedLink(2)" routerLink="/" class="link">Community</a></li>
                 <li><a (click)="changeSelectedLink(3)" routerLink="/" class="link">Profile</a></li>
             </ul>
-            <div class="header__loginWrap">
+            <div class="header__loginWrap" *ngIf="!user.token">
                 <a (click)="changeSelectedLink(4)" routerLink="/login" class="link">Login</a>
+            </div>
+            <div class="header__loginWrap" *ngIf="user.token">
+                <a (click)="logout()" routerLink="/" class="link">Logout</a>
             </div>
         </div>
     </div>

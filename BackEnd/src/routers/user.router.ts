@@ -26,9 +26,11 @@ router.post("/login", asyncHandler(
         const user = await userModel.findOne({username, password});
         if(user){
             res.send(generateTokenResponse(user));
+            return;
+        }else{
+            res.status(HTTP_BAD_REQUEST).send("Account already exists!")
+            return;
         }
-        res.status(HTTP_BAD_REQUEST).send("Account already exists!")
-        return;
     }
 ))
 
@@ -53,15 +55,20 @@ router.post("/register", asyncHandler(
 ))
 
 // generates JWT 
-const generateTokenResponse = (user:any) =>{
+const generateTokenResponse = (user: User) =>{
     const token = jwt.sign({
-        username:user.username, isAdmin:user.isAdmin
-    }, "SomeRadomText", {
+        id: user.id, email:user.email, isAdmin:user.isAdmin
+    },'process.env.JWT_SECRET!', {
         expiresIn:"30d"
     });
 
-    user.token = token;
-    return user;
+    return{
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token: token
+    }
 }
 
 export default router;

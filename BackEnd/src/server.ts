@@ -17,7 +17,8 @@ app.use(cors({
 }));
 
 app.use("/api/store", gameRouter);
-app.use("/api/store/login", userRouter);
+app.use("/api/store/users", userRouter);
+
 
 const port = 5000;
 app.listen(port,() => {

@@ -70,7 +70,7 @@ export class StoreComponent{
         clearInterval(this.autoCarouselRecc);
     } 
           // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
-        nextReccButton(): void{
+    nextReccButton(): void{
           try{
             const cards = document.querySelectorAll('.cardRecc_li')[0];
             const itemCarouselWidthRecc:number = cards.getBoundingClientRect().width;
@@ -82,10 +82,10 @@ export class StoreComponent{
           }catch(error){
               console.warn(error);
             }
-          }
+    }
 
       // on button click right, go to previous slide ( takes current slide, and previous slide, if previous slide doesnt exist, return)
-      previousReccButton(): void{
+    previousReccButton(): void{
         try{
         const cards = document.querySelectorAll('.cardRecc_li')[0];
         const itemCarouselWidthRecc = cards.getBoundingClientRect().width;
@@ -98,7 +98,7 @@ export class StoreComponent{
           console.warn(error);
         }
         
-      }
+    }
     // on button click right, go to next slide ( takes current slide, and next slide, if next slide doesnt exist, return)
     nextOfferButton(): void{
       try{
